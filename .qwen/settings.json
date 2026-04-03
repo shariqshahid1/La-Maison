@@ -4,7 +4,10 @@
       "Bash(npx *)",
       "Bash(npm install *)",
       "Bash(mkdir *)",
-      "Bash(npm run *)"
+      "Bash(npm run *)",
+      "Bash(type *)",
+      "Bash(taskkill *)",
+      "Bash(rmdir *)"
     ]
   },
   "$version": 3

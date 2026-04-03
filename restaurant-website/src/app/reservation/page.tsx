@@ -64,8 +64,8 @@ export default function ReservationPage() {
     }
   };
 
-  // Get today's date for min attribute
-  const today = new Date().toISOString().split('T')[0];
+  // Get today's date for min attribute - use useState to prevent hydration mismatch
+  const [today] = useState(() => new Date().toISOString().split('T')[0]);
 
   return (
     <div className="min-h-screen py-20 px-4 bg-black">

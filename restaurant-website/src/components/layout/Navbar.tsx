@@ -19,9 +19,15 @@ const navLinks = [
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [mounted, setMounted] = useState(false);
   const pathname = usePathname();
   const itemCount = useCartStore((state) => state.getItemCount());
   const { isAuthenticated, isAdmin, logout } = useAuthStore();
+
+  // Prevent hydration mismatch
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -77,7 +83,7 @@ export default function Navbar() {
             ))}
           </div>
 
-          {/* Right Side Icons */}
+          {/* Right Side Icons - Only render user-specific content after mount */}
           <div className="flex items-center space-x-4">
             {/* Cart */}
             <Link
@@ -85,7 +91,7 @@ export default function Navbar() {
               className="relative p-2 text-gray-300 hover:text-amber-500 transition-colors"
             >
               <FiShoppingCart className="w-6 h-6" />
-              {itemCount > 0 && (
+              {mounted && itemCount > 0 && (
                 <motion.span
                   initial={{ scale: 0 }}
                   animate={{ scale: 1 }}
@@ -96,25 +102,35 @@ export default function Navbar() {
               )}
             </Link>
 
-            {/* User Menu */}
-            {isAuthenticated ? (
-              <div className="hidden md:flex items-center space-x-4">
-                {isAdmin && (
-                  <Link
-                    href="/admin"
-                    className="text-sm font-medium text-amber-500 hover:text-amber-400 transition-colors"
+            {/* User Menu - Only render after mount to prevent hydration mismatch */}
+            {mounted ? (
+              isAuthenticated ? (
+                <div className="hidden md:flex items-center space-x-4">
+                  {isAdmin && (
+                    <Link
+                      href="/admin"
+                      className="text-sm font-medium text-amber-500 hover:text-amber-400 transition-colors"
+                    >
+                      Admin
+                    </Link>
+                  )}
+                  <button
+                    onClick={logout}
+                    className="flex items-center space-x-2 text-gray-300 hover:text-amber-500 transition-colors"
                   >
-                    Admin
-                  </Link>
-                )}
-                <button
-                  onClick={logout}
-                  className="flex items-center space-x-2 text-gray-300 hover:text-amber-500 transition-colors"
+                    <FiLogOut className="w-5 h-5" />
+                    <span className="text-sm">Logout</span>
+                  </button>
+                </div>
+              ) : (
+                <Link
+                  href="/login"
+                  className="hidden md:flex items-center space-x-2 text-gray-300 hover:text-amber-500 transition-colors"
                 >
-                  <FiLogOut className="w-5 h-5" />
-                  <span className="text-sm">Logout</span>
-                </button>
-              </div>
+                  <FiUser className="w-5 h-5" />
+                  <span className="text-sm">Login</span>
+                </Link>
+              )
             ) : (
               <Link
                 href="/login"
@@ -138,7 +154,7 @@ export default function Navbar() {
 
       {/* Mobile Menu */}
       <AnimatePresence>
-        {isOpen && (
+        {mounted && isOpen && (
           <motion.div
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
@@ -161,7 +177,7 @@ export default function Navbar() {
                 </Link>
               ))}
               <div className="pt-4 border-t border-gray-800 space-y-4">
-                {isAuthenticated ? (
+                {mounted && isAuthenticated ? (
                   <>
                     {isAdmin && (
                       <Link

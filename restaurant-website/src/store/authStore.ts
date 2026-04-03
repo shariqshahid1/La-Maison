@@ -16,6 +16,7 @@ interface AuthStore {
   setToken: (token: string | null) => void;
   login: (user: User, token: string) => void;
   logout: () => void;
+  initializeAuth: () => void;
 }
 
 export const useAuthStore = create<AuthStore>()((set) => ({
@@ -53,23 +54,32 @@ export const useAuthStore = create<AuthStore>()((set) => ({
       isAdmin: false,
     });
   },
-}));
 
-// Initialize auth state on client side
-if (typeof window !== 'undefined') {
-  const token = localStorage.getItem('token');
-  if (token) {
-    // Fetch user info on load
-    import('@/utils/api').then(({ default: api }) => {
-      api
-        .get('/api/auth/me')
-        .then((res) => {
-          useAuthStore.getState().setUser(res.data.user);
-          useAuthStore.getState().setToken(token);
-        })
-        .catch(() => {
-          useAuthStore.getState().logout();
-        });
-    });
-  }
-}
+  initializeAuth: () => {
+    if (typeof window === 'undefined') return;
+    
+    const token = localStorage.getItem('token');
+    if (token) {
+      import('@/utils/api').then(({ default: api }) => {
+        api
+          .get('/api/auth/me')
+          .then((res) => {
+            set({
+              user: res.data.user,
+              token,
+              isAuthenticated: true,
+              isAdmin: res.data.user?.role === 'admin',
+            });
+          })
+          .catch(() => {
+            set({
+              user: null,
+              token: null,
+              isAuthenticated: false,
+              isAdmin: false,
+            });
+          });
+      });
+    }
+  },
+}));

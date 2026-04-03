@@ -3,7 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
-import { Toaster } from "react-hot-toast";
+import ClientProviders from "@/components/layout/ClientProviders";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -22,22 +22,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${inter.variable} h-full antialiased`}>
+    <html lang="en" className={`${inter.variable} h-full antialiased`} suppressHydrationWarning>
       <body className="min-h-full flex flex-col bg-black font-sans">
-        <Navbar />
-        <main className="flex-grow">{children}</main>
-        <Footer />
-        <Toaster
-          position="top-right"
-          toastOptions={{
-            duration: 3000,
-            style: {
-              background: '#1a1a1a',
-              color: '#fff',
-              border: '1px solid #f59e0b',
-            },
-          }}
-        />
+        <ClientProviders>
+          <Navbar />
+          <main className="flex-grow">{children}</main>
+          <Footer />
+        </ClientProviders>
       </body>
     </html>
   );
