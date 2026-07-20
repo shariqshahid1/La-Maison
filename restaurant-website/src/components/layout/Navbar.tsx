@@ -141,10 +141,11 @@ export default function Navbar() {
               </Link>
             )}
 
-            {/* Mobile Menu Toggle */}
+            {/* Mobile Menu Toggle (hidden on laptop/desktop) */}
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="md:p-2 text-gray-300 hover:text-amber-500 transition-colors"
+              className="md:hidden p-2 text-gray-300 hover:text-amber-500 transition-colors"
+              aria-label="Toggle menu"
             >
               {isOpen ? <FiX className="w-6 h-6" /> : <FiMenu className="w-6 h-6" />}
             </button>

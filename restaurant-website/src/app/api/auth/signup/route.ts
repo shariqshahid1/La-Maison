@@ -7,7 +7,9 @@ export async function POST(req: NextRequest) {
   try {
     await dbConnect();
 
-    const { name, email, password, phone } = await req.json();
+    const { name, email: rawEmail, password, phone } = await req.json();
+
+    const email = typeof rawEmail === 'string' ? rawEmail.trim().toLowerCase() : '';
 
     // Validation
     if (!name || !email || !password) {

@@ -22,10 +22,19 @@ api.interceptors.request.use((config) => {
 api.interceptors.response.use(
   (response) => response,
   (error) => {
-    if (error.response?.status === 401) {
+    const url = error.config?.url || '';
+    // Only redirect on 401 for protected resources. Never redirect for the
+    // auth endpoints themselves (login, signup, me) so their errors can be
+    // handled by the calling page instead of a forced navigation.
+    if (
+      error.response?.status === 401 &&
+      !url.includes('/api/auth/')
+    ) {
       if (typeof window !== 'undefined') {
         localStorage.removeItem('token');
-        window.location.href = '/login';
+        if (!window.location.pathname.startsWith('/login')) {
+          window.location.href = '/login';
+        }
       }
     }
     return Promise.reject(error);
