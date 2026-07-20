@@ -1,7 +1,10 @@
 import axios from 'axios';
 
 const api = axios.create({
-  baseURL: process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3000',
+  // Use relative URLs so requests resolve against the current origin.
+  // This works in both local dev and production (Vercel) without needing
+  // NEXT_PUBLIC_APP_URL to point at a specific host.
+  baseURL: '',
   headers: {
     'Content-Type': 'application/json',
   },
