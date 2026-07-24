@@ -82,7 +82,7 @@ export default function CartPage() {
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="bg-amber-500 hover:bg-amber-600 text-black font-semibold px-8 py-4 rounded-lg transition-colors inline-flex items-center space-x-2"
+                className="bg-emerald-500 hover:bg-emerald-600 text-black font-semibold px-8 py-4 rounded-lg transition-colors inline-flex items-center space-x-2"
               >
                 <FiArrowLeft />
                 <span>Browse Menu</span>
@@ -121,7 +121,7 @@ export default function CartPage() {
                 <div className="flex-1">
                   <h3 className="text-white font-semibold text-lg">{item.name}</h3>
                   <p className="text-gray-400 text-sm line-clamp-1">{item.description}</p>
-                  <p className="text-amber-500 font-bold mt-1">${item.price.toFixed(2)}</p>
+                  <p className="text-emerald-500 font-bold mt-1">${item.price.toFixed(2)}</p>
                 </div>
 
                 {/* Quantity Controls */}
@@ -177,12 +177,12 @@ export default function CartPage() {
                 </div>
                 <div className="flex justify-between text-gray-400">
                   <span>Delivery Fee</span>
-                  <span className="text-amber-500">FREE</span>
+                  <span className="text-emerald-500">FREE</span>
                 </div>
                 <div className="border-t border-gray-700 pt-3">
                   <div className="flex justify-between text-white font-bold text-lg">
                     <span>Total</span>
-                    <span className="text-amber-500">${getTotal().toFixed(2)}</span>
+                    <span className="text-emerald-500">${getTotal().toFixed(2)}</span>
                   </div>
                 </div>
               </div>
@@ -192,7 +192,7 @@ export default function CartPage() {
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                   onClick={() => setShowCheckout(true)}
-                  className="w-full bg-amber-500 hover:bg-amber-600 text-black font-semibold py-3 rounded-lg transition-colors"
+                  className="w-full bg-emerald-500 hover:bg-emerald-600 text-black font-semibold py-3 rounded-lg transition-colors"
                 >
                   Proceed to Checkout
                 </motion.button>
@@ -203,7 +203,7 @@ export default function CartPage() {
                     value={deliveryAddress}
                     onChange={(e) => setDeliveryAddress(e.target.value)}
                     placeholder="Delivery Address *"
-                    className="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg text-white focus:outline-none focus:border-amber-500"
+                    className="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg text-white focus:outline-none focus:border-emerald-500"
                     required
                   />
                   <input
@@ -211,14 +211,14 @@ export default function CartPage() {
                     value={phone}
                     onChange={(e) => setPhone(e.target.value)}
                     placeholder="Phone Number *"
-                    className="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg text-white focus:outline-none focus:border-amber-500"
+                    className="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg text-white focus:outline-none focus:border-emerald-500"
                     required
                   />
                   <textarea
                     value={notes}
                     onChange={(e) => setNotes(e.target.value)}
                     placeholder="Order Notes (optional)"
-                    className="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg text-white focus:outline-none focus:border-amber-500 resize-none"
+                    className="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg text-white focus:outline-none focus:border-emerald-500 resize-none"
                     rows={3}
                   />
                   <motion.button
@@ -226,7 +226,7 @@ export default function CartPage() {
                     whileTap={{ scale: 0.98 }}
                     onClick={handleCheckout}
                     disabled={loading}
-                    className="w-full bg-amber-500 hover:bg-amber-600 text-black font-semibold py-3 rounded-lg transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                    className="w-full bg-emerald-500 hover:bg-emerald-600 text-black font-semibold py-3 rounded-lg transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                   >
                     {loading ? 'Processing...' : 'Place Order'}
                   </motion.button>
@@ -240,7 +240,7 @@ export default function CartPage() {
               )}
 
               <Link href="/menu">
-                <button className="w-full mt-4 text-gray-400 hover:text-amber-500 text-sm transition-colors flex items-center justify-center space-x-2">
+                <button className="w-full mt-4 text-gray-400 hover:text-emerald-500 text-sm transition-colors flex items-center justify-center space-x-2">
                   <FiArrowLeft />
                   <span>Continue Shopping</span>
                 </button>

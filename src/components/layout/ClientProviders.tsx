@@ -17,7 +17,6 @@ export default function ClientProviders({
     initializeAuth();
   }, [initializeAuth]);
 
-  // Prevent hydration mismatch by rendering same structure during SSR
   return (
     <>
       {children}
@@ -27,9 +26,9 @@ export default function ClientProviders({
           toastOptions={{
             duration: 3000,
             style: {
-              background: '#1a1a1a',
-              color: '#fff',
-              border: '1px solid #f59e0b',
+              background: '#0f172a',
+              color: '#e2e8f0',
+              border: '1px solid #10b981',
             },
           }}
         />

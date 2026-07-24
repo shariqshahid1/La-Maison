@@ -1,267 +1,127 @@
-# 🍽️ La Cucina - Premium Restaurant Website
+# La Maison - Premium Fine Dining Website
 
-A fully professional, modern, and production-ready restaurant website built with Next.js, featuring premium design, smooth animations, and complete responsiveness across all devices.
+A fully professional, modern, and production-ready fine dining restaurant website built with Next.js, featuring premium design, smooth animations, and complete responsiveness across all devices.
 
-![Tech Stack](https://img.shields.io/badge/Next.js-15-black?logo=next.js)
+![Tech Stack](https://img.shields.io/badge/Next.js-16-black?logo=next.js)
 ![TypeScript](https://img.shields.io/badge/TypeScript-5-blue?logo=typescript)
-![Tailwind](https://img.shields.io/badge/Tailwind-3-38bdf8?logo=tailwind-css)
+![Tailwind](https://img.shields.io/badge/Tailwind-4-38bdf8?logo=tailwind-css)
 ![MongoDB](https://img.shields.io/badge/MongoDB-Latest-green?logo=mongodb)
 
-## ✨ Features
+## Features
 
-### 🎨 Design & UI
-- **Premium Restaurant Design**: Dark theme with warm gold accents
+### Design & UI
+- **Premium Restaurant Design**: Dark slate theme with emerald green accents
 - **Fully Responsive**: Mobile-first approach, perfect on all devices
 - **Smooth Animations**: Framer Motion powered animations throughout
 - **Modern Components**: Cards, modals, forms with hover effects
 - **Clean Typography**: Professional spacing and hierarchy
+- **Custom SVG Logo**: Elegant house-themed branding
 
-### 🚀 Pages
-1. **Home Page**
-   - Animated hero section with parallax effect
-   - Featured dishes showcase
-   - Customer testimonials slider
-   - About section with stats
-   - Call-to-action sections
+### Pages
+1. **Home Page** - Animated hero, featured dishes, testimonials, CTA
+2. **Menu Page** - Category filtering, food cards, add to cart
+3. **About Page** - Restaurant story, chef profiles, achievements, values
+4. **Reservation Page** - Table booking with date/time/guest picker
+5. **Contact Page** - Contact form, info cards, Google Maps
+6. **Cart & Checkout** - Shopping cart, quantity controls, order summary
+7. **Authentication** - Login/Signup with JWT
+8. **Admin Dashboard** - Orders, reservations, menu CRUD
 
-2. **Menu Page**
-   - Category filtering system
-   - Beautiful food cards with animations
-   - Add to cart functionality
-   - Hover effects and transitions
-
-3. **About Page**
-   - Restaurant story section
-   - Chef profiles
-   - Achievements & stats
-   - Core values showcase
-
-4. **Reservation Page**
-   - Table booking form
-   - Date & time selection
-   - Guest count picker
-   - Special requests field
-
-5. **Contact Page**
-   - Contact form with validation
-   - Google Maps integration
-   - Contact information cards
-   - Social media links
-
-6. **Cart & Checkout**
-   - Shopping cart management
-   - Quantity controls
-   - Order summary
-   - Checkout form
-
-7. **Authentication**
-   - Login page
-   - Signup page
-   - JWT-based authentication
-   - Protected routes
-
-8. **Admin Dashboard**
-   - Overview statistics
-   - Order management
-   - Reservation management
-   - Menu CRUD operations
-
-### 🛠️ Technical Features
-- **Next.js 15** with App Router
+### Technical Features
+- **Next.js 16** with App Router
 - **TypeScript** for type safety
-- **Tailwind CSS** for styling
+- **Tailwind CSS v4** for styling
 - **Framer Motion** for animations
 - **MongoDB** with Mongoose
 - **JWT Authentication**
 - **Zustand** for state management
 - **React Hot Toast** for notifications
 - **Axios** for API calls
-- **Form Validation** on all forms
 
-## 📁 Project Structure
+## Project Structure
 
 ```
-restaurant-website/
+la-maison/
 ├── src/
 │   ├── app/
 │   │   ├── (auth)/
-│   │   │   ├── login/
-│   │   │   │   └── page.tsx
-│   │   │   └── signup/
-│   │   │       └── page.tsx
-│   │   ├── admin/
-│   │   │   └── page.tsx
+│   │   │   ├── login/page.tsx
+│   │   │   └── signup/page.tsx
+│   │   ├── admin/page.tsx
 │   │   ├── api/
-│   │   │   ├── auth/
-│   │   │   │   ├── login/route.ts
-│   │   │   │   ├── signup/route.ts
-│   │   │   │   └── me/route.ts
+│   │   │   ├── auth/ (login, signup, me)
 │   │   │   ├── menu/route.ts
 │   │   │   ├── orders/route.ts
 │   │   │   ├── reservations/route.ts
 │   │   │   └── contact/route.ts
-│   │   ├── about/
-│   │   │   └── page.tsx
-│   │   ├── cart/
-│   │   │   └── page.tsx
-│   │   ├── contact/
-│   │   │   └── page.tsx
-│   │   ├── menu/
-│   │   │   └── page.tsx
-│   │   ├── reservation/
-│   │   │   └── page.tsx
+│   │   ├── about/page.tsx
+│   │   ├── cart/page.tsx
+│   │   ├── contact/page.tsx
+│   │   ├── menu/page.tsx
+│   │   ├── reservation/page.tsx
 │   │   ├── layout.tsx
 │   │   ├── page.tsx
 │   │   └── globals.css
 │   ├── components/
 │   │   ├── layout/
 │   │   │   ├── Navbar.tsx
-│   │   │   └── Footer.tsx
+│   │   │   ├── Footer.tsx
+│   │   │   └── ClientProviders.tsx
 │   │   └── ui/
+│   │       ├── Logo.tsx
 │   │       ├── MenuCard.tsx
 │   │       ├── SectionTitle.tsx
 │   │       ├── LoadingSpinner.tsx
 │   │       └── SkeletonCard.tsx
-│   ├── lib/
-│   │   └── mongodb.ts
-│   ├── models/
-│   │   ├── User.ts
-│   │   ├── MenuItem.ts
-│   │   ├── Order.ts
-│   │   ├── Reservation.ts
-│   │   └── ContactMessage.ts
-│   ├── store/
-│   │   ├── cartStore.ts
-│   │   └── authStore.ts
-│   └── utils/
-│       ├── api.ts
-│       └── jwt.ts
+│   ├── lib/mongodb.ts
+│   ├── models/ (User, MenuItem, Order, Reservation, ContactMessage)
+│   ├── store/ (cartStore, authStore)
+│   └── utils/ (api, jwt)
 ├── public/
-│   └── images/
-├── .env.local
 ├── package.json
-├── tailwind.config.ts
 ├── tsconfig.json
 └── README.md
 ```
 
-## 🚀 Getting Started
+## Getting Started
 
 ### Prerequisites
-
-- **Node.js** 18+ (https://nodejs.org/)
-- **MongoDB** (local or cloud instance like MongoDB Atlas)
-- **npm** or **yarn** package manager
+- **Node.js** 18+
+- **MongoDB** (local or MongoDB Atlas)
+- **npm** or **yarn**
 
 ### Installation
 
-1. **Navigate to project directory**
-   ```bash
-   cd restaurant-website
-   ```
-
-2. **Install dependencies**
+1. Install dependencies
    ```bash
    npm install
    ```
 
-3. **Set up environment variables**
-   
-   Create a `.env.local` file in the root directory:
+2. Set up environment variables in `.env.local`:
    ```env
-   # MongoDB Connection
-   MONGODB_URI=mongodb://localhost:27017/restaurant
-   
-   # JWT Secret (Change this to a secure random string)
-   JWT_SECRET=your-super-secret-jwt-key-change-this-in-production
-   
-   # App URL
+   MONGODB_URI=mongodb://localhost:27017/la-maison
+   JWT_SECRET=your-super-secret-jwt-key
    NEXT_PUBLIC_APP_URL=http://localhost:3000
    ```
 
-4. **Start MongoDB**
-   
-   If running MongoDB locally:
-   ```bash
-   mongod
-   ```
-   
-   Or use MongoDB Atlas (cloud):
-   - Create account at https://www.mongodb.com/cloud/atlas
-   - Create a cluster
-   - Get connection string
-   - Update `MONGODB_URI` in `.env.local`
-
-5. **Run the development server**
+3. Run the development server
    ```bash
    npm run dev
    ```
 
-6. **Open your browser**
-   
-   Navigate to [http://localhost:3000](http://localhost:3000)
+4. Open [http://localhost:3000](http://localhost:3000)
 
-## 🎨 Customization
+## Color Theme
 
-### Colors
-Edit `globals.css` to change the color scheme:
+The site uses a premium emerald green accent on dark slate backgrounds:
 ```css
 :root {
-  --gold: #f59e0b;
-  --gold-dark: #d97706;
+  --accent: #10b981;
+  --accent-dark: #059669;
 }
 ```
 
-### Restaurant Information
-- Update restaurant name in `Navbar.tsx` and `Footer.tsx`
-- Modify contact information in `Footer.tsx` and `Contact` page
-- Change images by replacing URLs with your own
-
-### Menu Items
-Update the sample menu data in `src/app/menu/page.tsx` or connect to your database API
-
-### Adding Admin User
-To create an admin user, you can:
-1. Sign up normally through the UI
-2. Update the user's role in MongoDB:
-   ```javascript
-   db.users.updateOne(
-     { email: "admin@example.com" },
-     { $set: { role: "admin" } }
-   )
-   ```
-
-## 📱 Responsive Breakpoints
-
-- **Mobile**: < 640px
-- **Tablet**: 640px - 1024px
-- **Desktop**: 1024px - 1280px
-- **Large screens**: > 1280px
-
-## 🔐 Security Features
-
-- JWT token-based authentication
-- Password hashing with bcrypt
-- Protected admin routes
-- Input validation on all forms
-- Secure API endpoints
-
-## 🚢 Deployment
-
-### Vercel (Recommended)
-
-1. Push code to GitHub
-2. Import project to Vercel
-3. Add environment variables
-4. Deploy!
-
-### Other Platforms
-
-- **Netlify**: Similar to Vercel
-- **AWS/GCP/Azure**: Deploy as Node.js app
-- **MongoDB Atlas**: For database hosting
-
-## 📊 API Endpoints
+## API Endpoints
 
 ### Authentication
 - `POST /api/auth/login` - User login
@@ -289,59 +149,14 @@ To create an admin user, you can:
 - `POST /api/contact` - Send message
 - `DELETE /api/contact?id={id}` - Delete message
 
-## 🎯 Future Enhancements
+## Deployment
 
-- [ ] Online payment integration (Stripe/PayPal)
-- [ ] Email notifications for orders
-- [ ] Image upload for menu items
-- [ ] Advanced menu search
-- [ ] User order history
-- [ ] Reviews and ratings
-- [ ] Multi-language support
-- [ ] SEO optimization with sitemap
-- [ ] PWA capabilities
-
-## 📦 Dependencies
-
-```json
-{
-  "next": "latest",
-  "react": "latest",
-  "react-dom": "latest",
-  "framer-motion": "latest",
-  "mongoose": "latest",
-  "bcryptjs": "latest",
-  "jsonwebtoken": "latest",
-  "axios": "latest",
-  "react-icons": "latest",
-  "zustand": "latest",
-  "react-hot-toast": "latest"
-}
-```
-
-## 🤝 Support
-
-For issues or questions:
-1. Check this README
-2. Review error logs in console
-3. Ensure MongoDB is running
-4. Verify environment variables are set
-
-## 📝 License
-
-This project is open source and available for personal and commercial use.
-
-## 🎉 Credits
-
-- **Framework**: Next.js
-- **Styling**: Tailwind CSS
-- **Animations**: Framer Motion
-- **Icons**: React Icons (Feather)
-- **Database**: MongoDB
-- **Images**: Unsplash (for demo purposes)
+### Vercel (Recommended)
+1. Push code to GitHub
+2. Import project to Vercel
+3. Add environment variables
+4. Deploy!
 
 ---
 
-**Built with ❤️ for food lovers everywhere**
-
-*Enjoy your culinary journey with La Cucina!* 🍕🍝🍷
+**Built with care for food lovers everywhere**

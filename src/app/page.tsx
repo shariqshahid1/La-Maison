@@ -99,9 +99,9 @@ export default function HomePage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
-            className="text-amber-500 text-lg md:text-xl font-medium mb-4 tracking-wider uppercase"
+            className="text-emerald-500 text-lg md:text-xl font-medium mb-4 tracking-wider uppercase"
           >
-            Welcome to La Cucina
+            Welcome to La Maison
           </motion.p>
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
@@ -111,7 +111,7 @@ export default function HomePage() {
           >
             Delicious Food,
             <br />
-            <span className="text-amber-500">Delivered Fresh</span>
+            <span className="text-emerald-500">Delivered Fresh</span>
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -131,7 +131,7 @@ export default function HomePage() {
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="bg-amber-500 hover:bg-amber-600 text-black font-semibold px-8 py-4 rounded-lg text-lg transition-colors flex items-center justify-center space-x-2 w-full sm:w-auto"
+                className="bg-emerald-500 hover:bg-emerald-600 text-black font-semibold px-8 py-4 rounded-lg text-lg transition-colors flex items-center justify-center space-x-2 w-full sm:w-auto"
               >
                 <span>Order Now</span>
                 <FiArrowRight />
@@ -141,7 +141,7 @@ export default function HomePage() {
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="bg-transparent border-2 border-white hover:border-amber-500 hover:text-amber-500 text-white font-semibold px-8 py-4 rounded-lg text-lg transition-all flex items-center justify-center space-x-2 w-full sm:w-auto"
+                className="bg-transparent border-2 border-white hover:border-emerald-500 hover:text-emerald-500 text-white font-semibold px-8 py-4 rounded-lg text-lg transition-all flex items-center justify-center space-x-2 w-full sm:w-auto"
               >
                 <span>Book a Table</span>
               </motion.button>
@@ -188,7 +188,7 @@ export default function HomePage() {
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="bg-transparent border-2 border-amber-500 text-amber-500 hover:bg-amber-500 hover:text-black font-semibold px-8 py-3 rounded-lg transition-all"
+                className="bg-transparent border-2 border-emerald-500 text-emerald-500 hover:bg-emerald-500 hover:text-black font-semibold px-8 py-3 rounded-lg transition-all"
               >
                 View Full Menu
               </motion.button>
@@ -218,7 +218,7 @@ export default function HomePage() {
                   whileInView={{ scale: 1 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: 0.3 }}
-                  className="absolute -bottom-6 -right-6 bg-amber-500 text-black p-6 rounded-xl shadow-xl"
+                  className="absolute -bottom-6 -right-6 bg-emerald-500 text-black p-6 rounded-xl shadow-xl"
                 >
                   <p className="text-3xl font-bold">15+</p>
                   <p className="text-sm font-medium">Years Experience</p>
@@ -235,9 +235,9 @@ export default function HomePage() {
               <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
                 Our Story
               </h2>
-              <div className="w-20 h-1 bg-amber-500 rounded-full mb-6" />
+              <div className="w-20 h-1 bg-emerald-500 rounded-full mb-6" />
               <p className="text-gray-400 text-lg mb-6">
-                Founded in 2010, La Cucina has been serving authentic Italian cuisine with a modern twist. Our chefs use only the freshest ingredients, sourced locally and imported directly from Italy.
+                Founded in 2010, La Maison has been serving authentic Italian cuisine with a modern twist. Our chefs use only the freshest ingredients, sourced locally and imported directly from Italy.
               </p>
               <p className="text-gray-400 text-lg mb-8">
                 Every dish tells a story of tradition, passion, and culinary excellence. We believe in creating not just meals, but memorable experiences.
@@ -256,7 +256,7 @@ export default function HomePage() {
                     transition={{ duration: 0.5, delay: index * 0.1 }}
                     className="text-center"
                   >
-                    <Icon className="w-8 h-8 text-amber-500 mx-auto mb-2" />
+                    <Icon className="w-8 h-8 text-emerald-500 mx-auto mb-2" />
                     <p className="text-white font-bold">{value}</p>
                     <p className="text-gray-500 text-sm">{label}</p>
                   </motion.div>
@@ -293,7 +293,7 @@ export default function HomePage() {
                   />
                   <div>
                     <p className="text-white font-semibold">{testimonial.name}</p>
-                    <div className="flex text-amber-500">
+                    <div className="flex text-emerald-500">
                       {Array.from({ length: testimonial.rating }).map((_, i) => (
                         <FiStar key={i} className="w-4 h-4 fill-current" />
                       ))}
@@ -334,7 +334,7 @@ export default function HomePage() {
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="bg-amber-500 hover:bg-amber-600 text-black font-semibold px-8 py-4 rounded-lg text-lg transition-colors"
+                className="bg-emerald-500 hover:bg-emerald-600 text-black font-semibold px-8 py-4 rounded-lg text-lg transition-colors"
               >
                 Reserve a Table
               </motion.button>
@@ -343,7 +343,7 @@ export default function HomePage() {
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="bg-transparent border-2 border-white hover:border-amber-500 hover:text-amber-500 text-white font-semibold px-8 py-4 rounded-lg text-lg transition-all"
+                className="bg-transparent border-2 border-white hover:border-emerald-500 hover:text-emerald-500 text-white font-semibold px-8 py-4 rounded-lg text-lg transition-all"
               >
                 Contact Us
               </motion.button>

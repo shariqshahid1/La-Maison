@@ -174,8 +174,8 @@ export default function MenuPage() {
                 whileTap={{ scale: 0.95 }}
                 className={`px-6 py-3 rounded-lg font-medium transition-all ${
                   selectedCategory === category
-                    ? 'bg-amber-500 text-black'
-                    : 'bg-gray-800 text-gray-300 hover:bg-gray-700 hover:text-amber-500'
+                    ? 'bg-emerald-500 text-black'
+                    : 'bg-gray-800 text-gray-300 hover:bg-gray-700 hover:text-emerald-500'
                 }`}
               >
                 {category}

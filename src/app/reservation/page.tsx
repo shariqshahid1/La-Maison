@@ -94,7 +94,7 @@ export default function ReservationPage() {
                     type="text"
                     value={formData.name}
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                    className="w-full pl-12 pr-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:border-amber-500 text-white"
+                    className="w-full pl-12 pr-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:border-emerald-500 text-white"
                     placeholder="John Doe"
                     required
                   />
@@ -111,7 +111,7 @@ export default function ReservationPage() {
                     type="email"
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                    className="w-full pl-12 pr-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:border-amber-500 text-white"
+                    className="w-full pl-12 pr-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:border-emerald-500 text-white"
                     placeholder="you@example.com"
                     required
                   />
@@ -131,7 +131,7 @@ export default function ReservationPage() {
                     type="tel"
                     value={formData.phone}
                     onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                    className="w-full pl-12 pr-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:border-amber-500 text-white"
+                    className="w-full pl-12 pr-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:border-emerald-500 text-white"
                     placeholder="+1 (123) 456-7890"
                     required
                   />
@@ -147,7 +147,7 @@ export default function ReservationPage() {
                   <select
                     value={formData.guests}
                     onChange={(e) => setFormData({ ...formData, guests: e.target.value })}
-                    className="w-full pl-12 pr-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:border-amber-500 text-white appearance-none"
+                    className="w-full pl-12 pr-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:border-emerald-500 text-white appearance-none"
                   >
                     {Array.from({ length: 20 }, (_, i) => i + 1).map((num) => (
                       <option key={num} value={num}>
@@ -172,7 +172,7 @@ export default function ReservationPage() {
                     value={formData.date}
                     onChange={(e) => setFormData({ ...formData, date: e.target.value })}
                     min={today}
-                    className="w-full pl-12 pr-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:border-amber-500 text-white"
+                    className="w-full pl-12 pr-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:border-emerald-500 text-white"
                     required
                   />
                 </div>
@@ -187,7 +187,7 @@ export default function ReservationPage() {
                   <select
                     value={formData.time}
                     onChange={(e) => setFormData({ ...formData, time: e.target.value })}
-                    className="w-full pl-12 pr-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:border-amber-500 text-white appearance-none"
+                    className="w-full pl-12 pr-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:border-emerald-500 text-white appearance-none"
                     required
                   >
                     <option value="">Select a time</option>
@@ -211,7 +211,7 @@ export default function ReservationPage() {
                 <textarea
                   value={formData.specialRequests}
                   onChange={(e) => setFormData({ ...formData, specialRequests: e.target.value })}
-                  className="w-full pl-12 pr-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:border-amber-500 text-white resize-none"
+                  className="w-full pl-12 pr-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:border-emerald-500 text-white resize-none"
                   rows={4}
                   placeholder="Any dietary requirements, allergies, or special requests..."
                 />
@@ -224,7 +224,7 @@ export default function ReservationPage() {
               whileTap={{ scale: 0.98 }}
               type="submit"
               disabled={loading}
-              className="w-full bg-amber-500 hover:bg-amber-600 text-black font-semibold py-4 rounded-lg transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+              className="w-full bg-emerald-500 hover:bg-emerald-600 text-black font-semibold py-4 rounded-lg transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
             >
               {loading ? 'Booking...' : 'Book My Table'}
             </motion.button>
@@ -247,7 +247,7 @@ export default function ReservationPage() {
             {
               icon: FiMail,
               title: 'Email',
-              info: 'reservations@lacucina.com',
+              info: 'reservations@lamaison.com',
             },
           ].map((item, index) => (
             <motion.div
@@ -257,7 +257,7 @@ export default function ReservationPage() {
               transition={{ duration: 0.5, delay: index * 0.1 }}
               className="bg-gray-900 p-6 rounded-xl text-center"
             >
-              <item.icon className="w-8 h-8 text-amber-500 mx-auto mb-3" />
+              <item.icon className="w-8 h-8 text-emerald-500 mx-auto mb-3" />
               <h3 className="text-white font-semibold mb-2">{item.title}</h3>
               <p className="text-gray-400 text-sm whitespace-pre-line">{item.info}</p>
             </motion.div>

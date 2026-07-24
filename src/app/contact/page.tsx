@@ -69,7 +69,7 @@ export default function ContactPage() {
                         type="text"
                         value={formData.name}
                         onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                        className="w-full pl-12 pr-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:border-amber-500 text-white"
+                        className="w-full pl-12 pr-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:border-emerald-500 text-white"
                         placeholder="John Doe"
                         required
                       />
@@ -86,7 +86,7 @@ export default function ContactPage() {
                         type="email"
                         value={formData.email}
                         onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                        className="w-full pl-12 pr-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:border-amber-500 text-white"
+                        className="w-full pl-12 pr-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:border-emerald-500 text-white"
                         placeholder="you@example.com"
                         required
                       />
@@ -106,7 +106,7 @@ export default function ContactPage() {
                         type="tel"
                         value={formData.phone}
                         onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                        className="w-full pl-12 pr-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:border-amber-500 text-white"
+                        className="w-full pl-12 pr-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:border-emerald-500 text-white"
                         placeholder="+1 (123) 456-7890"
                       />
                     </div>
@@ -122,7 +122,7 @@ export default function ContactPage() {
                         type="text"
                         value={formData.subject}
                         onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
-                        className="w-full pl-12 pr-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:border-amber-500 text-white"
+                        className="w-full pl-12 pr-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:border-emerald-500 text-white"
                         placeholder="How can we help?"
                         required
                       />
@@ -140,7 +140,7 @@ export default function ContactPage() {
                     <textarea
                       value={formData.message}
                       onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                      className="w-full pl-12 pr-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:border-amber-500 text-white resize-none"
+                      className="w-full pl-12 pr-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:border-emerald-500 text-white resize-none"
                       rows={6}
                       placeholder="Your message..."
                       required
@@ -154,7 +154,7 @@ export default function ContactPage() {
                   whileTap={{ scale: 0.98 }}
                   type="submit"
                   disabled={loading}
-                  className="w-full bg-amber-500 hover:bg-amber-600 text-black font-semibold py-4 rounded-lg transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="w-full bg-emerald-500 hover:bg-emerald-600 text-black font-semibold py-4 rounded-lg transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   {loading ? 'Sending...' : 'Send Message'}
                 </motion.button>
@@ -174,8 +174,8 @@ export default function ContactPage() {
               <h3 className="text-xl font-bold text-white mb-6">Contact Information</h3>
               <div className="space-y-4">
                 <div className="flex items-start space-x-4">
-                  <div className="p-3 bg-amber-500/10 rounded-lg">
-                    <FiMapPin className="w-6 h-6 text-amber-500" />
+                  <div className="p-3 bg-emerald-500/10 rounded-lg">
+                    <FiMapPin className="w-6 h-6 text-emerald-500" />
                   </div>
                   <div>
                     <p className="text-white font-medium">Address</p>
@@ -184,25 +184,25 @@ export default function ContactPage() {
                 </div>
 
                 <div className="flex items-start space-x-4">
-                  <div className="p-3 bg-amber-500/10 rounded-lg">
-                    <FiPhoneCall className="w-6 h-6 text-amber-500" />
+                  <div className="p-3 bg-emerald-500/10 rounded-lg">
+                    <FiPhoneCall className="w-6 h-6 text-emerald-500" />
                   </div>
                   <div>
                     <p className="text-white font-medium">Phone</p>
-                    <a href="tel:+11234567890" className="text-gray-400 hover:text-amber-500 transition-colors">
+                    <a href="tel:+11234567890" className="text-gray-400 hover:text-emerald-500 transition-colors">
                       +1 (123) 456-7890
                     </a>
                   </div>
                 </div>
 
                 <div className="flex items-start space-x-4">
-                  <div className="p-3 bg-amber-500/10 rounded-lg">
-                    <FiMailIcon className="w-6 h-6 text-amber-500" />
+                  <div className="p-3 bg-emerald-500/10 rounded-lg">
+                    <FiMailIcon className="w-6 h-6 text-emerald-500" />
                   </div>
                   <div>
                     <p className="text-white font-medium">Email</p>
-                    <a href="mailto:info@lacucina.com" className="text-gray-400 hover:text-amber-500 transition-colors">
-                      info@lacucina.com
+                    <a href="mailto:info@lamaison.com" className="text-gray-400 hover:text-emerald-500 transition-colors">
+                      info@lamaison.com
                     </a>
                   </div>
                 </div>
@@ -238,7 +238,7 @@ export default function ContactPage() {
                     href="#"
                     whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.95 }}
-                    className="p-3 bg-gray-800 rounded-lg text-gray-400 hover:text-amber-500 hover:bg-gray-700 transition-all"
+                    className="p-3 bg-gray-800 rounded-lg text-gray-400 hover:text-emerald-500 hover:bg-gray-700 transition-all"
                   >
                     {social}
                   </motion.a>

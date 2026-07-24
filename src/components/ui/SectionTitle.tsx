@@ -37,7 +37,7 @@ export default function SectionTitle({
         {title}
       </h2>
       <div className="flex justify-center">
-        <div className="w-24 h-1 bg-amber-500 rounded-full" />
+        <div className="w-24 h-1 bg-emerald-500 rounded-full" />
       </div>
       {subtitle && (
         <motion.p

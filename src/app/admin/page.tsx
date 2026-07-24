@@ -184,7 +184,7 @@ export default function AdminDashboard() {
               whileTap={{ scale: 0.95 }}
               className={`flex items-center space-x-2 px-6 py-3 rounded-lg font-medium transition-all ${
                 activeTab === tab.id
-                  ? 'bg-amber-500 text-black'
+                  ? 'bg-emerald-500 text-black'
                   : 'bg-gray-800 text-gray-300 hover:bg-gray-700'
               }`}
             >
@@ -206,21 +206,21 @@ export default function AdminDashboard() {
             >
               <div className="bg-gray-900 p-6 rounded-xl">
                 <div className="flex items-center justify-between mb-4">
-                  <FiShoppingBag className="w-8 h-8 text-amber-500" />
+                  <FiShoppingBag className="w-8 h-8 text-emerald-500" />
                   <span className="text-3xl font-bold text-white">{orders.length}</span>
                 </div>
                 <p className="text-gray-400">Total Orders</p>
               </div>
               <div className="bg-gray-900 p-6 rounded-xl">
                 <div className="flex items-center justify-between mb-4">
-                  <FiCalendar className="w-8 h-8 text-amber-500" />
+                  <FiCalendar className="w-8 h-8 text-emerald-500" />
                   <span className="text-3xl font-bold text-white">{reservations.length}</span>
                 </div>
                 <p className="text-gray-400">Reservations</p>
               </div>
               <div className="bg-gray-900 p-6 rounded-xl">
                 <div className="flex items-center justify-between mb-4">
-                  <FiMenu className="w-8 h-8 text-amber-500" />
+                  <FiMenu className="w-8 h-8 text-emerald-500" />
                   <span className="text-3xl font-bold text-white">{menuItems.length}</span>
                 </div>
                 <p className="text-gray-400">Menu Items</p>
@@ -248,7 +248,7 @@ export default function AdminDashboard() {
                       </p>
                     </div>
                     <div className="flex items-center gap-4">
-                      <span className="text-amber-500 font-bold">${order.totalAmount.toFixed(2)}</span>
+                      <span className="text-emerald-500 font-bold">${order.totalAmount.toFixed(2)}</span>
                       <span className={`px-3 py-1 rounded-full text-sm font-medium ${getStatusColor(order.status)}`}>
                         {order.status}
                       </span>
@@ -323,7 +323,7 @@ export default function AdminDashboard() {
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                   onClick={() => setShowAddMenuModal(true)}
-                  className="bg-amber-500 hover:bg-amber-600 text-black px-4 py-2 rounded-lg font-medium flex items-center space-x-2"
+                  className="bg-emerald-500 hover:bg-emerald-600 text-black px-4 py-2 rounded-lg font-medium flex items-center space-x-2"
                 >
                   <FiPlus />
                   <span>Add Item</span>
@@ -337,7 +337,7 @@ export default function AdminDashboard() {
                     <div className="p-4">
                       <h4 className="text-white font-semibold">{item.name}</h4>
                       <p className="text-gray-400 text-sm">{item.category}</p>
-                      <p className="text-amber-500 font-bold mt-2">${item.price.toFixed(2)}</p>
+                      <p className="text-emerald-500 font-bold mt-2">${item.price.toFixed(2)}</p>
                       <div className="flex gap-2 mt-3">
                         <button
                           onClick={() => deleteMenuItem(item._id!)}
@@ -384,14 +384,14 @@ export default function AdminDashboard() {
                     placeholder="Item Name"
                     value={newMenuItem.name}
                     onChange={(e) => setNewMenuItem({ ...newMenuItem, name: e.target.value })}
-                    className="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg text-white focus:outline-none focus:border-amber-500"
+                    className="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg text-white focus:outline-none focus:border-emerald-500"
                     required
                   />
                   <textarea
                     placeholder="Description"
                     value={newMenuItem.description}
                     onChange={(e) => setNewMenuItem({ ...newMenuItem, description: e.target.value })}
-                    className="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg text-white focus:outline-none focus:border-amber-500 resize-none"
+                    className="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg text-white focus:outline-none focus:border-emerald-500 resize-none"
                     rows={3}
                     required
                   />
@@ -400,14 +400,14 @@ export default function AdminDashboard() {
                     placeholder="Price"
                     value={newMenuItem.price}
                     onChange={(e) => setNewMenuItem({ ...newMenuItem, price: e.target.value })}
-                    className="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg text-white focus:outline-none focus:border-amber-500"
+                    className="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg text-white focus:outline-none focus:border-emerald-500"
                     step="0.01"
                     required
                   />
                   <select
                     value={newMenuItem.category}
                     onChange={(e) => setNewMenuItem({ ...newMenuItem, category: e.target.value })}
-                    className="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg text-white focus:outline-none focus:border-amber-500"
+                    className="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg text-white focus:outline-none focus:border-emerald-500"
                   >
                     {['Pizza', 'Burgers', 'BBQ', 'Drinks', 'Desserts', 'Appetizers', 'Pasta', 'Salads'].map((cat) => (
                       <option key={cat} value={cat}>{cat}</option>
@@ -418,11 +418,11 @@ export default function AdminDashboard() {
                     placeholder="Image URL"
                     value={newMenuItem.image}
                     onChange={(e) => setNewMenuItem({ ...newMenuItem, image: e.target.value })}
-                    className="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg text-white focus:outline-none focus:border-amber-500"
+                    className="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg text-white focus:outline-none focus:border-emerald-500"
                   />
                   <button
                     type="submit"
-                    className="w-full bg-amber-500 hover:bg-amber-600 text-black font-semibold py-3 rounded-lg transition-colors"
+                    className="w-full bg-emerald-500 hover:bg-emerald-600 text-black font-semibold py-3 rounded-lg transition-colors"
                   >
                     Add Item
                   </button>

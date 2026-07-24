@@ -11,9 +11,9 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "La Cucina - Fine Italian Dining Experience",
-  description: "Experience the finest Italian cuisine with authentic flavors and modern presentation. Book your table now!",
-  keywords: ["restaurant", "italian", "food", "dining", "pizza", "pasta"],
+  title: "La Maison - Premium Fine Dining Experience",
+  description: "Experience exquisite fine dining with curated menus and impeccable service. Book your table at La Maison today!",
+  keywords: ["restaurant", "fine dining", "food", "gourmet", "reservation", "la maison"],
 };
 
 export default function RootLayout({
@@ -23,7 +23,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${inter.variable} h-full antialiased`} suppressHydrationWarning>
-      <body className="min-h-full flex flex-col bg-black font-sans">
+      <body className="min-h-full flex flex-col bg-[#0a0f1a] font-sans">
         <ClientProviders>
           <Navbar />
           <main className="flex-grow">{children}</main>

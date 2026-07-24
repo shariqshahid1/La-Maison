@@ -36,26 +36,20 @@ export default function AboutPage() {
   return (
     <div className="min-h-screen bg-black">
       {/* Hero Section */}
-      <section className="relative h-[60vh] flex items-center justify-center overflow-hidden">
-        <div
-          className="absolute inset-0 bg-cover bg-center"
-          style={{
-            backgroundImage: 'url(https://images.unsplash.com/photo-1556910103-1c02745aae4d?w=1920&q=80)',
-          }}
-        />
-        <div className="absolute inset-0 bg-black/70" />
+      <section className="relative min-h-[50vh] md:min-h-[60vh] flex items-center justify-center overflow-hidden bg-black px-4 py-16">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="relative z-10 text-center px-4"
+          className="relative z-10 text-center max-w-4xl mx-auto"
         >
-          <h1 className="text-4xl md:text-6xl font-bold text-white mb-4">
-            Our <span className="text-amber-500">Story</span>
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 md:mb-6 leading-tight">
+            Our <span className="text-emerald-500">Story</span>
           </h1>
-          <p className="text-gray-300 text-lg md:text-xl max-w-2xl mx-auto">
+          <p className="text-gray-400 text-base sm:text-lg md:text-xl lg:text-2xl max-w-2xl mx-auto leading-relaxed">
             A journey of passion, flavor, and culinary excellence
           </p>
+          <div className="w-16 md:w-24 h-1 bg-emerald-500 rounded-full mx-auto mt-6 md:mt-8" />
         </motion.div>
       </section>
 
@@ -85,9 +79,9 @@ export default function AboutPage() {
               <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
                 The Beginning
               </h2>
-              <div className="w-20 h-1 bg-amber-500 rounded-full mb-6" />
+              <div className="w-20 h-1 bg-emerald-500 rounded-full mb-6" />
               <p className="text-gray-400 text-lg mb-4">
-                La Cucina was born from a simple dream: to bring the authentic taste of Italy to the world. Founded in 2010 by the Rossi family, our restaurant has become a beacon for food lovers seeking genuine Italian cuisine.
+                La Maison was born from a simple dream: to bring the authentic taste of Italy to the world. Founded in 2010 by the Rossi family, our restaurant has become a beacon for food lovers seeking genuine Italian cuisine.
               </p>
               <p className="text-gray-400 text-lg mb-4">
                 Every ingredient we use is carefully selected, from the imported Italian flour to the locally sourced organic vegetables. We believe that great food starts with great ingredients.
@@ -118,7 +112,7 @@ export default function AboutPage() {
                 whileHover={{ y: -10 }}
                 className="bg-gray-800/50 p-8 rounded-xl text-center hover:bg-gray-800 transition-all"
               >
-                <stat.icon className="w-12 h-12 text-amber-500 mx-auto mb-4" />
+                <stat.icon className="w-12 h-12 text-emerald-500 mx-auto mb-4" />
                 <p className="text-3xl md:text-4xl font-bold text-white mb-2">{stat.value}</p>
                 <p className="text-gray-400">{stat.label}</p>
               </motion.div>
@@ -153,15 +147,15 @@ export default function AboutPage() {
                     alt={chef.name}
                     className="w-full h-full object-cover"
                     onError={(e) => {
-                      (e.target as HTMLImageElement).src = `https://ui-avatars.com/api/?name=${chef.name}&size=400&background=f59e0b&color=000`;
+                      (e.target as HTMLImageElement).src = `https://ui-avatars.com/api/?name=${chef.name}&size=400&background=10b981&color=000`;
                     }}
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
                   <div className="absolute bottom-4 left-4 right-4">
-                    <h3 className="text-xl font-bold text-white group-hover:text-amber-500 transition-colors">
+                    <h3 className="text-xl font-bold text-white group-hover:text-emerald-500 transition-colors">
                       {chef.name}
                     </h3>
-                    <p className="text-amber-500 font-medium">{chef.role}</p>
+                    <p className="text-emerald-500 font-medium">{chef.role}</p>
                   </div>
                 </div>
                 <div className="p-6">
@@ -200,7 +194,7 @@ export default function AboutPage() {
               },
               {
                 title: 'Community',
-                description: 'La Cucina is more than a restaurant – it is a gathering place where friends and family come together to share good food and create memories.',
+                description: 'La Maison is more than a restaurant – it is a gathering place where friends and family come together to share good food and create memories.',
               },
               {
                 title: 'Innovation',
@@ -214,9 +208,9 @@ export default function AboutPage() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 whileHover={{ y: -5 }}
-                className="bg-gray-800/50 p-8 rounded-xl hover:bg-gray-800 transition-all border border-gray-700 hover:border-amber-500"
+                className="bg-gray-800/50 p-8 rounded-xl hover:bg-gray-800 transition-all border border-gray-700 hover:border-emerald-500"
               >
-                <h3 className="text-xl font-bold text-white mb-3 hover:text-amber-500 transition-colors">
+                <h3 className="text-xl font-bold text-white mb-3 hover:text-emerald-500 transition-colors">
                   {value.title}
                 </h3>
                 <p className="text-gray-400">{value.description}</p>
@@ -243,7 +237,7 @@ export default function AboutPage() {
           className="relative z-10 max-w-4xl mx-auto text-center"
         >
           <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">
-            Come Experience La Cucina
+            Come Experience La Maison
           </h2>
           <p className="text-gray-300 text-lg mb-8 max-w-2xl mx-auto">
             Book your table today and discover why thousands of food lovers choose us for authentic Italian dining.
@@ -252,7 +246,7 @@ export default function AboutPage() {
             href="/reservation"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="inline-block bg-amber-500 hover:bg-amber-600 text-black font-semibold px-8 py-4 rounded-lg text-lg transition-colors"
+            className="inline-block bg-emerald-500 hover:bg-emerald-600 text-black font-semibold px-8 py-4 rounded-lg text-lg transition-colors"
           >
             Reserve Your Table
           </motion.a>

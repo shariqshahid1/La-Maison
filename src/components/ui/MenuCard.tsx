@@ -37,9 +37,8 @@ export default function MenuCard({ item, index }: MenuItemProps) {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, delay: index * 0.1 }}
       whileHover={{ y: -10 }}
-      className="bg-gray-900 rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 group"
+      className="bg-gray-900/80 rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 group border border-gray-800/50"
     >
-      {/* Image */}
       <div className="relative overflow-hidden h-56">
         <motion.img
           whileHover={{ scale: 1.1 }}
@@ -49,14 +48,13 @@ export default function MenuCard({ item, index }: MenuItemProps) {
           className="w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
-        <div className="absolute top-4 right-4 bg-amber-500 text-black px-3 py-1 rounded-full font-semibold text-sm">
+        <div className="absolute top-4 right-4 bg-emerald-500 text-white px-3 py-1 rounded-full font-semibold text-sm">
           ${item.price.toFixed(2)}
         </div>
       </div>
 
-      {/* Content */}
       <div className="p-6">
-        <h3 className="text-xl font-bold text-white mb-2 group-hover:text-amber-500 transition-colors">
+        <h3 className="text-xl font-bold text-white mb-2 group-hover:text-emerald-500 transition-colors">
           {item.name}
         </h3>
         <p className="text-gray-400 text-sm mb-4 line-clamp-2">{item.description}</p>
@@ -66,7 +64,7 @@ export default function MenuCard({ item, index }: MenuItemProps) {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             onClick={handleAddToCart}
-            className="flex items-center space-x-2 bg-amber-500 hover:bg-amber-600 text-black px-4 py-2 rounded-lg font-medium transition-colors"
+            className="flex items-center space-x-2 bg-emerald-500 hover:bg-emerald-600 text-white px-4 py-2 rounded-lg font-medium transition-colors"
           >
             <FiShoppingCart className="w-4 h-4" />
             <span>Add to Cart</span>
