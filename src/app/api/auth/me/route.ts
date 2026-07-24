@@ -43,8 +43,8 @@ export async function GET(req: NextRequest) {
         role: user.role,
       },
     });
-  } catch (error: any) {
-    console.error('Get user error:', error);
+  } catch {
+    console.error('Get user error:');
     return NextResponse.json(
       { error: 'Server error' },
       { status: 500 }

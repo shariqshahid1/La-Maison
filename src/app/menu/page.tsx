@@ -1,12 +1,9 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { FiFilter } from 'react-icons/fi';
 import SectionTitle from '@/components/ui/SectionTitle';
 import MenuCard from '@/components/ui/MenuCard';
-import SkeletonCard from '@/components/ui/SkeletonCard';
-import api from '@/utils/api';
 
 const categories = [
   'All',
@@ -138,9 +135,7 @@ const sampleMenuItems = [
 
 export default function MenuPage() {
   const [selectedCategory, setSelectedCategory] = useState('All');
-  const [menuItems, setMenuItems] = useState(sampleMenuItems);
-  const [loading, setLoading] = useState(false);
-  const [showFilters, setShowFilters] = useState(true);
+  const [menuItems] = useState(sampleMenuItems);
 
   // Filter items by category
   const filteredItems = selectedCategory === 'All'

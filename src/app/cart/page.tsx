@@ -50,13 +50,14 @@ export default function CartPage() {
         notes,
       };
 
-      const res = await api.post('/api/orders', orderData);
+      const _res = await api.post('/api/orders', orderData);
       
       toast.success('Order placed successfully!');
       clearCart();
       router.push('/');
-    } catch (error: any) {
-      toast.error(error.response?.data?.error || 'Failed to place order');
+    } catch (error: unknown) {
+      const err = error as { response?: { data?: { error?: string } } };
+      toast.error(err.response?.data?.error || 'Failed to place order');
     } finally {
       setLoading(false);
     }
@@ -76,7 +77,7 @@ export default function CartPage() {
               Your Cart is Empty
             </h1>
             <p className="text-gray-400 text-lg mb-8">
-              Looks like you haven't added anything to your cart yet
+              Looks like you haven&apos;t added anything to your cart yet
             </p>
             <Link href="/menu">
               <motion.button

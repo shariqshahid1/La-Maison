@@ -38,7 +38,7 @@ export default function SignupPage() {
     setLoading(true);
 
     try {
-      const { confirmPassword, ...signupData } = formData;
+      const { confirmPassword: _, ...signupData } = formData;
       const res = await api.post('/api/auth/signup', signupData);
       
       if (res.data.success) {
@@ -46,8 +46,9 @@ export default function SignupPage() {
         toast.success('Account created successfully!');
         router.push('/');
       }
-    } catch (error: any) {
-      toast.error(error.response?.data?.error || 'Signup failed');
+    } catch (error: unknown) {
+      const err = error as { response?: { data?: { error?: string } } };
+      toast.error(err.response?.data?.error || 'Signup failed');
     } finally {
       setLoading(false);
     }

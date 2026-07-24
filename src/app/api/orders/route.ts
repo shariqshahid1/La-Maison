@@ -9,7 +9,7 @@ export async function GET(req: NextRequest) {
     const { searchParams } = new URL(req.url);
     const userId = searchParams.get('userId');
 
-    let query: any = {};
+    const query: Record<string, unknown> = {};
     if (userId) {
       query.user = userId;
     }
@@ -22,8 +22,8 @@ export async function GET(req: NextRequest) {
       success: true,
       orders,
     });
-  } catch (error: any) {
-    console.error('Get orders error:', error);
+  } catch {
+    console.error('Get orders error');
     return NextResponse.json(
       { error: 'Server error' },
       { status: 500 }
@@ -42,10 +42,11 @@ export async function POST(req: NextRequest) {
       success: true,
       order,
     }, { status: 201 });
-  } catch (error: any) {
-    console.error('Create order error:', error);
+  } catch (error: unknown) {
+    const err = error as Error;
+    console.error('Create order error:', err);
     return NextResponse.json(
-      { error: 'Server error', details: error.message },
+      { error: 'Server error', details: err.message },
       { status: 500 }
     );
   }
@@ -72,8 +73,8 @@ export async function PATCH(req: NextRequest) {
       success: true,
       order,
     });
-  } catch (error: any) {
-    console.error('Update order error:', error);
+  } catch {
+    console.error('Update order error');
     return NextResponse.json(
       { error: 'Server error' },
       { status: 500 }
@@ -101,8 +102,8 @@ export async function DELETE(req: NextRequest) {
       success: true,
       message: 'Order deleted',
     });
-  } catch (error: any) {
-    console.error('Delete order error:', error);
+  } catch {
+    console.error('Delete order error');
     return NextResponse.json(
       { error: 'Server error' },
       { status: 500 }

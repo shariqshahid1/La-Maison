@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -20,13 +20,19 @@ const navLinks = [
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const mountedRef = useRef(false);
   const [mounted, setMounted] = useState(false);
   const pathname = usePathname();
+  const prevPathname = useRef(pathname);
   const itemCount = useCartStore((state) => state.getItemCount());
   const { isAuthenticated, isAdmin, logout } = useAuthStore();
 
   useEffect(() => {
-    setMounted(true);
+    if (!mountedRef.current) {
+      mountedRef.current = true;
+      // eslint-disable-next-line react-hooks/set-state-in-effect
+      setMounted(true);
+    }
   }, []);
 
   useEffect(() => {
@@ -38,7 +44,11 @@ export default function Navbar() {
   }, []);
 
   useEffect(() => {
-    setIsOpen(false);
+    if (prevPathname.current !== pathname) {
+      prevPathname.current = pathname;
+      // eslint-disable-next-line react-hooks/set-state-in-effect
+      setIsOpen(false);
+    }
   }, [pathname]);
 
   return (

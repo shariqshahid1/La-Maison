@@ -54,10 +54,11 @@ export async function POST(req: NextRequest) {
         role: user.role,
       },
     }, { status: 201 });
-  } catch (error: any) {
-    console.error('Signup error:', error);
+  } catch (error: unknown) {
+    const err = error as Error;
+    console.error('Signup error:', err);
     return NextResponse.json(
-      { error: 'Server error', details: error.message },
+      { error: 'Server error', details: err.message },
       { status: 500 }
     );
   }

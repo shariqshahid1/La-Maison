@@ -22,7 +22,7 @@ export default function ContactPage() {
     setLoading(true);
 
     try {
-      const res = await api.post('/api/contact', formData);
+      const _res = await api.post('/api/contact', formData);
       
       toast.success('Message sent successfully! We will get back to you soon.');
       setFormData({
@@ -32,8 +32,9 @@ export default function ContactPage() {
         subject: '',
         message: '',
       });
-    } catch (error: any) {
-      toast.error(error.response?.data?.error || 'Failed to send message');
+    } catch (error: unknown) {
+      const err = error as { response?: { data?: { error?: string } } };
+      toast.error(err.response?.data?.error || 'Failed to send message');
     } finally {
       setLoading(false);
     }

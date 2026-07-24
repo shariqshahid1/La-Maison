@@ -2,7 +2,6 @@ import { NextRequest, NextResponse } from 'next/server';
 import dbConnect from '@/lib/mongodb';
 import User from '@/models/User';
 import { generateToken } from '@/utils/jwt';
-import bcrypt from 'bcryptjs';
 
 export async function POST(req: NextRequest) {
   try {
@@ -57,10 +56,11 @@ export async function POST(req: NextRequest) {
         role: user.role,
       },
     });
-  } catch (error: any) {
-    console.error('Login error:', error);
+  } catch (error: unknown) {
+    const err = error as Error;
+    console.error('Login error:', err);
     return NextResponse.json(
-      { error: 'Server error', details: error.message },
+      { error: 'Server error', details: err.message },
       { status: 500 }
     );
   }

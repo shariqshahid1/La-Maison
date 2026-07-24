@@ -42,7 +42,7 @@ export default function ReservationPage() {
     setLoading(true);
 
     try {
-      const res = await api.post('/api/reservations', {
+      const _res = await api.post('/api/reservations', {
         ...formData,
         user: user?._id,
       });
@@ -57,8 +57,9 @@ export default function ReservationPage() {
         guests: '2',
         specialRequests: '',
       });
-    } catch (error: any) {
-      toast.error(error.response?.data?.error || 'Failed to book reservation');
+    } catch (error: unknown) {
+      const err = error as { response?: { data?: { error?: string } } };
+      toast.error(err.response?.data?.error || 'Failed to book reservation');
     } finally {
       setLoading(false);
     }

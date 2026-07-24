@@ -38,17 +38,16 @@ const UserSchema = new Schema<IUserDoc>(
 // Hash password before saving
 UserSchema.pre('save', async function (next) {
   if (!this.isModified('password')) {
-    // @ts-ignore - Mongoose type issue
+    // @ts-expect-error - Mongoose type issue
     return next();
   }
   const salt = await bcrypt.genSalt(10);
   this.password = await bcrypt.hash(this.password, salt);
-  // @ts-ignore - Mongoose type issue
+  // @ts-expect-error - Mongoose type issue
   next();
 });
 
 // Compare password method
-// @ts-ignore - Mongoose methods don't have proper types
 UserSchema.methods.comparePassword = async function (candidatePassword: string): Promise<boolean> {
   return await bcrypt.compare(candidatePassword, this.password);
 };

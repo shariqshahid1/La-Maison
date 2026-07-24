@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import dbConnect from '@/lib/mongodb';
 import ContactMessage from '@/models/ContactMessage';
 
-export async function GET(req: NextRequest) {
+export async function GET(_req: NextRequest) {
   try {
     await dbConnect();
 
@@ -12,8 +12,8 @@ export async function GET(req: NextRequest) {
       success: true,
       messages,
     });
-  } catch (error: any) {
-    console.error('Get messages error:', error);
+  } catch {
+    console.error('Get messages error:');
     return NextResponse.json(
       { error: 'Server error' },
       { status: 500 }
@@ -32,10 +32,11 @@ export async function POST(req: NextRequest) {
       success: true,
       message,
     }, { status: 201 });
-  } catch (error: any) {
-    console.error('Create message error:', error);
+  } catch (error: unknown) {
+    const err = error as Error;
+    console.error('Create message error:', err);
     return NextResponse.json(
-      { error: 'Server error', details: error.message },
+      { error: 'Server error', details: err.message },
       { status: 500 }
     );
   }
@@ -61,8 +62,8 @@ export async function DELETE(req: NextRequest) {
       success: true,
       message: 'Message deleted',
     });
-  } catch (error: any) {
-    console.error('Delete message error:', error);
+  } catch {
+    console.error('Delete message error:');
     return NextResponse.json(
       { error: 'Server error' },
       { status: 500 }

@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { FiMenu, FiUsers, FiCalendar, FiShoppingBag, FiPlus, FiTrash2, FiEdit, FiX } from 'react-icons/fi';
+import { FiMenu, FiCalendar, FiShoppingBag, FiPlus, FiTrash2, FiX } from 'react-icons/fi';
 import { useAuthStore } from '@/store/authStore';
 import { useRouter } from 'next/navigation';
 import LoadingSpinner from '@/components/ui/LoadingSpinner';
@@ -56,9 +56,9 @@ const sampleMenuItems = [
 
 export default function AdminDashboard() {
   const router = useRouter();
-  const { isAuthenticated, isAdmin, user } = useAuthStore();
+  const { isAuthenticated, isAdmin } = useAuthStore();
   const [activeTab, setActiveTab] = useState('overview');
-  const [loading, setLoading] = useState(true);
+  const [loading] = useState(true);
   const [orders, setOrders] = useState(sampleOrders);
   const [reservations, setReservations] = useState(sampleReservations);
   const [menuItems, setMenuItems] = useState(sampleMenuItems);
@@ -72,16 +72,13 @@ export default function AdminDashboard() {
   });
 
   useEffect(() => {
-    // Check admin access
     if (!isAuthenticated || !isAdmin) {
       toast.error('Access denied. Admin only.');
       router.push('/');
-      return;
     }
-    setLoading(false);
   }, [isAuthenticated, isAdmin, router]);
 
-  if (loading) {
+  if (!isAuthenticated || !isAdmin) {
     return <LoadingSpinner />;
   }
 
@@ -99,7 +96,7 @@ export default function AdminDashboard() {
         order._id === orderId ? { ...order, status } : order
       ));
       toast.success('Order status updated');
-    } catch (error) {
+    } catch {
       toast.error('Failed to update order');
     }
   };
@@ -111,7 +108,7 @@ export default function AdminDashboard() {
         res._id === reservationId ? { ...res, status } : res
       ));
       toast.success('Reservation status updated');
-    } catch (error) {
+    } catch {
       toast.error('Failed to update reservation');
     }
   };
@@ -121,7 +118,7 @@ export default function AdminDashboard() {
       await api.delete(`/api/menu?id=${itemId}`);
       setMenuItems(menuItems.filter((item) => item._id !== itemId));
       toast.success('Menu item deleted');
-    } catch (error) {
+    } catch {
       toast.error('Failed to delete menu item');
     }
   };
@@ -137,7 +134,7 @@ export default function AdminDashboard() {
       setShowAddMenuModal(false);
       setNewMenuItem({ name: '', description: '', price: '', category: 'Pizza', image: '' });
       toast.success('Menu item added');
-    } catch (error) {
+    } catch {
       toast.error('Failed to add menu item');
     }
   };

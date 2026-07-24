@@ -10,7 +10,7 @@ export async function GET(req: NextRequest) {
     const category = searchParams.get('category');
     const featured = searchParams.get('featured');
 
-    let query: any = {};
+    const query: Record<string, unknown> = {};
 
     if (category && category !== 'All') {
       query.category = category;
@@ -26,8 +26,8 @@ export async function GET(req: NextRequest) {
       success: true,
       menuItems,
     });
-  } catch (error: any) {
-    console.error('Get menu error:', error);
+  } catch {
+    console.error('Get menu error');
     return NextResponse.json(
       { error: 'Server error' },
       { status: 500 }
@@ -46,8 +46,8 @@ export async function POST(req: NextRequest) {
       success: true,
       menuItem,
     }, { status: 201 });
-  } catch (error: any) {
-    console.error('Create menu item error:', error);
+  } catch {
+    console.error('Create menu item error');
     return NextResponse.json(
       { error: 'Server error' },
       { status: 500 }
@@ -75,8 +75,8 @@ export async function DELETE(req: NextRequest) {
       success: true,
       message: 'Menu item deleted',
     });
-  } catch (error: any) {
-    console.error('Delete menu item error:', error);
+  } catch {
+    console.error('Delete menu item error');
     return NextResponse.json(
       { error: 'Server error' },
       { status: 500 }

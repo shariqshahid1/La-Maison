@@ -1,12 +1,10 @@
 'use client';
 
-import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { FiArrowRight, FiStar, FiClock, FiUsers } from 'react-icons/fi';
 import SectionTitle from '@/components/ui/SectionTitle';
 import MenuCard from '@/components/ui/MenuCard';
-import api from '@/utils/api';
 
 // Sample featured dishes data
 const featuredDishes = [
@@ -300,7 +298,7 @@ export default function HomePage() {
                     </div>
                   </div>
                 </div>
-                <p className="text-gray-400 italic">"{testimonial.text}"</p>
+                <p className="text-gray-400 italic">&quot;{testimonial.text}&quot;</p>
               </motion.div>
             ))}
           </div>

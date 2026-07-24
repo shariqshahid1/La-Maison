@@ -31,8 +31,9 @@ export default function LoginPage() {
         toast.success('Login successful!');
         router.push('/');
       }
-    } catch (error: any) {
-      toast.error(error.response?.data?.error || 'Login failed');
+    } catch (error: unknown) {
+      const err = error as { response?: { data?: { error?: string } } };
+      toast.error(err.response?.data?.error || 'Login failed');
     } finally {
       setLoading(false);
     }
@@ -109,7 +110,7 @@ export default function LoginPage() {
           </form>
 
           <p className="mt-6 text-center text-gray-400">
-            Don't have an account?{' '}
+            Don&apos;t have an account?{' '}
             <Link href="/signup" className="text-emerald-500 hover:text-emerald-400 font-medium">
               Sign Up
             </Link>
